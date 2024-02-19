@@ -87,8 +87,9 @@
             </div>
         </nav>
         <!-- Responsive navbar end -->
+
         <!-- Banner section start -->
-        <div class="hero py-20 mt-6 rounded-3xl"
+        <div class="hero lg:min-h-screen py-20 mt-6 rounded-3xl"
             style="background-image:linear-gradient(to bottom, #0307128c,#03071209), url('images/banner.png')">
             <div class="hero-content text-center">
                 <div class="max-w-xl">
@@ -221,7 +222,7 @@
                         </div>
                         <div class="flex gap-2">
                             <img src="images/seat-green-filled.png" alt="">
-                            <p>Available</p>
+                            <p>Selected</p>
                         </div>
                     </div>
                     <div
@@ -348,11 +349,14 @@
                             <h2>Total Price</h2>
                             <h2>BDT <span id="totalPrice">0</span></h2>
                         </div>
+                        <!-- if coupon is available then append history of discount -->
+                        <div id="discountAmount"
+                            class="flex justify-between items-center mt-3 font-medium text-base text-[#030712]"></div>
                         <div id="couponElement" class="bg-[#FFFFFF] rounded-xl px-5 py-3 flex items-center mt-3">
                             <input id="couponField" type="text" placeholder="Have any coupon?"
                                 class="text-base font-normal focus:outline-none w-5/6 sm:w-full md:w-full lg:w-full">
                             <button class="text-white text-base rounded-sm font-semibold bg-[#1DD100] px-3 py-1"
-                                disabled onclick="applyCoupon()">Apply</button>
+                                onclick="applyCoupon()" id="couponButton" disabled>Apply</button>
                         </div>
                         <div class="flex justify-between items-center mt-3 font-medium text-base text-[#030712]">
                             <h2>Grand Total</h2>
@@ -366,8 +370,7 @@
                         <div class="mt-5">
                             <h2 class="font-semibold text-base text-[#030712]">Passenger Name*</h2>
                             <input id="userName" type="text" placeholder="Enter your name"
-                                class="text-base text-[#03071266] font-normal focus:outline-none border rounded-lg border-[#0307121A] p-2 mt-1 w-full"
-                                required>
+                                class="text-base text-[#03071266] font-normal focus:outline-none border rounded-lg border-[#0307121A] p-2 mt-1 w-full">
                         </div>
                         <div class="mt-5">
                             <h2 class="font-semibold text-base text-[#030712]">Phone Number*</h2>
@@ -380,26 +383,40 @@
                             <input id="userEmail" type="text" placeholder="Enter your email address"
                                 class="text-base text-[#03071266] font-normal focus:outline-none border rounded-lg border-[#0307121A] p-2 mt-1 w-full">
                         </div>
-                        <div
-                            class="font-Raleway font-bold bg-[#1DD100] text-[#FFFFFF] text-xl px-4 py-2 mt-6 rounded-2xl text-center">
-                            <input type="submit" value="Next" class="hover:cursor-pointer" id="submitButton" disabled>
-                        </div>
+                        <button id="confirmButton"
+                            class="w-full font-Raleway font-bold bg-[#1DD100] text-[#FFFFFF] text-xl px-4 py-2 mt-6 rounded-2xl text-center"
+                            onclick="my_modal_3.showModal()" disabled>Next</button>
                     </form>
                     <!-- customer informatin section end -->
 
+                    <!-- open modal for confirm booking-->
+                    <dialog id="my_modal_3" class="modal">
+                        <div class="modal-box text-center p-4 md:p-12 lg:p-24">
+                            <form method="dialog">
+                                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                            </form>
+                            <img src="images/success.png" alt="" class="mx-auto">
+                            <p class="mt-4 text-[#4A4A4A] font-semibold">Thank you for Booking Our Bus Seats.
+                                We are working hard to find the best service and deals for you. </p>
+                            <p class="mt-4 mb-4 text-[#4A4A4A] font-normal">Shortly you will find a confirmation in your
+                                email</p>
+                            <button
+                                class="font-bold text-lg bg-[#27AE60] px-10 py-4 rounded-3xl w-full">Continue</button>
+                        </div>
+                    </dialog>
+
                     <!-- terms and condtion part -->
                     <div class="flex justify-between mt-6">
-                        <p class="font-normal text-base text-[#03071299] underline"><a href="">Terms and Conditions</a>
+                        <p class="font-normal text-base text-[#03071299] underline"><a href="">Terms and
+                                Conditions</a>
                         </p>
-                        <p class="font-normal text-base text-[#03071299] underline"><a href="">Cancellation Policy</a>
+                        <p class="font-normal text-base text-[#03071299] underline"><a href="">Cancellation
+                                Policy</a>
                         </p>
                     </div>
                 </div>
         </section>
-        <!-- Seat booking section end -->
     </main>
-
-    <!-- javascript file for project -->
     <script src="script.js"></script>
 </body>
 
